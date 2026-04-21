@@ -1,5 +1,6 @@
 {
-  "name": "VIETTUNGAI",
-  "description": "A static landing page for the VIETTUNGAI AI tools ecosystem, featuring a dark modern UI and direct links to tools.",
-  "requestFramePermissions": []
+  "name": "VietTung AI",
+  "description": "Internal tools for content, production, automation, and daily operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
