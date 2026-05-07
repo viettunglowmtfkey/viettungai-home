@@ -4,7 +4,7 @@ import { ChevronRight, ChevronDown, Wand2, Type } from 'lucide-react';
 import { WatermarkTab } from './components/WatermarkTab';
 
 // --- Constants ---
-const VIDEO_URL = "https://pikaso.cdnpk.net/private/production/4042839424/c6e6e723-a49d-442b-ae4a-38f9f3f7f8ae-0.mp4?token=exp=1777075200~hmac=2b489b0e1e84150a47885ac27d7641396eb7b137642b0a5e45c8be2724fc8599";
+const VIDEO_URL = "https://res.cloudinary.com/dqhgio6do/video/upload/v1778144692/freepik_surreal-dreamcore-cave-fl_2834477144_cd6tug.mp4";
 
 const LOGOS = [
   { name: "TryOn AI", letter: "T" },
@@ -37,10 +37,10 @@ const HeroVideo = () => {
       // Start transition when current video is near the end
       if (!isTransitioning && active.duration > 0 && active.currentTime > active.duration - (CROSSFADE_TIME / 1000 + 0.1)) {
         isTransitioning = true;
-        
+
         // Reset and play the next one
         next.currentTime = 0;
-        next.play().catch(() => {});
+        next.play().catch(() => { });
 
         // Crossfade opacities
         if (activeVideo === 1) {
@@ -118,8 +118,8 @@ const Navbar = ({ onOpenTool, currentView }: { onOpenTool: (tool: string | null)
       </div>
 
       <div className="hidden md:flex items-center gap-8">
-        <div 
-          className="relative inline-block" 
+        <div
+          className="relative inline-block"
           ref={dropdownRef}
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
@@ -144,7 +144,7 @@ const Navbar = ({ onOpenTool, currentView }: { onOpenTool: (tool: string | null)
               >
                 <div className="liquid-glass rounded-2xl border border-white/5 shadow-2xl overflow-hidden p-2 bg-black/40 backdrop-blur-xl">
                   <div className="p-3 space-y-1">
-                    <button 
+                    <button
                       onClick={() => { onOpenTool('watermark'); setDropdownOpen(false); }}
                       className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all text-left group"
                     >
@@ -156,9 +156,9 @@ const Navbar = ({ onOpenTool, currentView }: { onOpenTool: (tool: string | null)
                         <div className="text-[10px] text-foreground/40 font-medium">Batch process SKU & labels</div>
                       </div>
                     </button>
-                    
+
                     <div className="px-3 pt-2 pb-1 text-[10px] uppercase tracking-widest text-foreground/30 font-bold">Planned Tools</div>
-                    
+
                     <div className="w-full flex items-center gap-3 p-3 rounded-xl opacity-40 cursor-not-allowed">
                       <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
                         <Wand2 className="w-5 h-5 text-foreground/40" />
@@ -204,15 +204,15 @@ const LogoMarquee = () => {
         <div className="text-foreground/50 text-sm leading-tight flex-shrink-0 whitespace-nowrap">
           Core tools used across <br /> the VTAI system
         </div>
-        
+
         <div className="flex-1 overflow-hidden relative">
-          <motion.div 
+          <motion.div
             className="flex gap-16 items-center whitespace-nowrap"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ 
-              duration: 20, 
-              ease: "linear", 
-              repeat: Infinity 
+            transition={{
+              duration: 20,
+              ease: "linear",
+              repeat: Infinity
             }}
           >
             {[...LOGOS, ...LOGOS].map((logo, idx) => (
@@ -243,7 +243,7 @@ export default function App() {
       </div>
 
       {/* Blurred Overlay Shape */}
-      <div 
+      <div
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[984px] h-[527px] transition-all duration-1000 ${view ? 'opacity-40 scale-150 blur-[120px]' : 'opacity-90 blur-[82px]'} bg-gray-950 pointer-events-none rounded-full z-1 shadow-[0_0_120px_40px_rgba(3,7,18,1)]`}
       />
 
@@ -253,7 +253,7 @@ export default function App() {
       <div className="flex-1 relative z-10 flex flex-col overflow-hidden">
         <AnimatePresence mode="wait">
           {!view ? (
-            <motion.div 
+            <motion.div
               key="hero"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -262,16 +262,16 @@ export default function App() {
               className="flex-1 flex flex-col items-center justify-center relative z-10 overflow-visible px-4"
             >
               <div className="text-center flex flex-col items-center">
-                <motion.h1 
+                <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   className="text-[100px] sm:text-[120px] lg:text-[140px] font-medium leading-[1.02] tracking-[-0.024em] font-display flex flex-wrap justify-center translate-y-2"
                 >
                   <span className="text-foreground">VIETTUNG </span>
-                  <span 
+                  <span
                     className="bg-clip-text text-transparent px-2"
-                    style={{ 
+                    style={{
                       backgroundImage: 'linear-gradient(to left, #6366f1, #a855f7, #fcd34d)',
                       WebkitBackgroundClip: 'text'
                     }}
@@ -280,7 +280,7 @@ export default function App() {
                   </span>
                 </motion.h1>
 
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 0.8, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -289,7 +289,7 @@ export default function App() {
                   Internal tools for content, production, automation, and daily operations
                 </motion.p>
 
-                <motion.button 
+                <motion.button
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   onClick={() => setView('watermark')}
